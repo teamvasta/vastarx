@@ -11,7 +11,7 @@ export namespace VastaRX {
 		return retorno;
 	};
 
-	export const listen = (chave: string, callback: any) => {
+	export const getState = (chave: string, callback: any) => {
 		if (!vastaRXGetters[chave]) vastaRXGetters[chave] = [];
 		const id = `${chave}:${hash()}`;
 		vastaRXGetters[chave].push({ id, callback });
@@ -19,7 +19,7 @@ export namespace VastaRX {
 		return id;
 	};
 
-	export const publish = (chave: string, valor: any) => {
+	export const setState = (chave: string, valor: any) => {
 		vastaRXValores[chave] = valor;
 		if (vastaRXGetters[chave]) {
 			for (const getter of vastaRXGetters[chave]) {
@@ -28,7 +28,7 @@ export namespace VastaRX {
 		}
 	};
 
-	export const unlisten = (identificador: string) => {
+	export const unListen = (identificador: string) => {
 		const [chave, id] = identificador.split(":");
 		vastaRXGetters[chave] = vastaRXGetters[chave].filter((objeto: any) => {
 			return objeto.id !== identificador;

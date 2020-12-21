@@ -1,6 +1,6 @@
 {
   "name": "@vasta/rx",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Simple reactive state library",
   "main": "lib/index.js",
   "scripts": {

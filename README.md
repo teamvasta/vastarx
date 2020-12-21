@@ -12,14 +12,14 @@ npm install @vasta/rx
 ```ts
 import { VastaRX } from '@vasta/rx';
 
-const id = VastaRX.listen('key', (value) => {
+const id = VastaRX.getState('key', (value) => {
 	console.log('Updated value:', value)
 })
 
 const newValue = 1
-VastaRX.publish('key', newValue)
+VastaRX.setState('key', newValue)
 
-VastaRX.unlisten(id)
+VastaRX.unListen(id)
 
 ```
 ## Package Build
