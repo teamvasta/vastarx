@@ -11,27 +11,27 @@ export namespace VastaRX {
 		return retorno;
 	};
 
-	export const getState = (chave: string, callback: any) => {
-		if (!vastaRXGetters[chave]) vastaRXGetters[chave] = [];
-		const id = `${chave}:${hash()}`;
-		vastaRXGetters[chave].push({ id, callback });
-		callback(vastaRXValores[chave]);
+	export const getState = (key: string, callback: any) => {
+		if (!vastaRXGetters[key]) vastaRXGetters[key] = [];
+		const id = `${key}:${hash()}`;
+		vastaRXGetters[key].push({ id, callback });
+		callback(vastaRXValores[key]);
 		return id;
 	};
 
-	export const setState = (chave: string, valor: any) => {
-		vastaRXValores[chave] = valor;
-		if (vastaRXGetters[chave]) {
-			for (const getter of vastaRXGetters[chave]) {
-				getter.callback(valor);
+	export const setState = (key: string, value: any) => {
+		vastaRXValores[key] = value;
+		if (vastaRXGetters[key]) {
+			for (const getter of vastaRXGetters[key]) {
+				getter.callback(value);
 			}
 		}
 	};
 
-	export const unListen = (identificador: string) => {
-		const [chave, id] = identificador.split(":");
+	export const unListen = (identifier: string) => {
+		const [chave, id] = identifier.split(":");
 		vastaRXGetters[chave] = vastaRXGetters[chave].filter((objeto: any) => {
-			return objeto.id !== identificador;
+			return objeto.id.split(':')[1] !== id;
 		});
 		return id;
 	};
