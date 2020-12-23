@@ -1,5 +1,5 @@
 # vastarx
-Simple reactive state library
+Simple reactive state 1KB library
 
 ## Install
 
@@ -21,10 +21,4 @@ VastaRX.setState('key', newValue)
 
 VastaRX.unListen(id)
 
-```
-## Package Build
-
-```bash
-$ npm run build
-$ npm publish --access public
 ```
