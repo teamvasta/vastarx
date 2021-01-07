@@ -1,7 +1,7 @@
 {
   "name": "@vasta/rx",
-  "version": "1.0.7",
-  "description": "Simple reactive state library",
+  "version": "1.0.8",
+  "description": "A zero-dependency, simple reactive state library",
   "main": "lib/index.js",
   "scripts": {
     "build": "tsc"
@@ -17,7 +17,13 @@
     "state"
   ],
   "author": "Vasta",
-  "license": "MIT",
+  "license": "Apache-2.0",
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
   "bugs": {
     "url": "https://github.com/teamvasta/vastarx/issues"
   },

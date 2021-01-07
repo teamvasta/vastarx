@@ -11,6 +11,11 @@ export namespace VastaRX {
 		return retorno;
 	};
 
+	export const getCurrentValue = (key: string) => {
+		if (!vastaRXGetters[key]) vastaRXGetters[key] = [];
+		return vastaRXValores[key];
+	};
+
 	export const getState = (key: string, callback: any) => {
 		if (!vastaRXGetters[key]) vastaRXGetters[key] = [];
 		const id = `${key}:${hash()}`;

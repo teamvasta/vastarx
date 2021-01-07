@@ -1,5 +1,5 @@
 # vastarx
-Simple reactive state 1KB library
+A zero dependency, simple reactive state
 
 ## Install
 
