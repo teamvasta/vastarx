@@ -1,5 +1,5 @@
 export namespace VastaRX {
-	const vastaRXValores: any = {};
+	const vastaRXValues: any = {};
 	const vastaRXGetters: any = {};
 
 	const hash = function () {
@@ -12,20 +12,19 @@ export namespace VastaRX {
 	};
 
 	export const getCurrentValue = (key: string) => {
-		if (!vastaRXGetters[key]) vastaRXGetters[key] = [];
-		return vastaRXValores[key];
+		return vastaRXValues[key];
 	};
 
 	export const getState = (key: string, callback: any) => {
 		if (!vastaRXGetters[key]) vastaRXGetters[key] = [];
 		const id = `${key}:${hash()}`;
 		vastaRXGetters[key].push({ id, callback });
-		callback(vastaRXValores[key]);
+		callback(vastaRXValues[key]);
 		return id;
 	};
 
 	export const setState = (key: string, value: any) => {
-		vastaRXValores[key] = value;
+		vastaRXValues[key] = value;
 		if (vastaRXGetters[key]) {
 			for (const getter of vastaRXGetters[key]) {
 				getter.callback(value);
